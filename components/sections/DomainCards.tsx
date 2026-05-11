@@ -77,22 +77,26 @@ export default function DomainCards() {
                 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                 whileHover={!isActive ? { y: translateY[i] - 12, scale: 0.93 } : {}}
-                style={{
-                  position: 'absolute',
-                  width: '180px',
-                  height: '260px',
-                  borderRadius: '20px',
-                  border: isActive
-                    ? '2px solid var(--color-purple-light)'
+               style={{
+                position: 'absolute',
+                width: '180px',
+                height: '260px',
+                borderRadius: '20px',
+                border: isActive
+                    ? '2px solid rgba(167,139,250,0.8)'
                     : '1px solid rgba(124,58,237,0.4)',
-                  background: isActive
-                    ? 'linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%)'
+                background: isActive
+                    ? 'linear-gradient(135deg, #3b0fa0 0%, #7C3AED 50%, #9333ea 100%)'
                     : 'var(--color-black-3)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  padding: '24px 20px',
-                  cursor: 'pointer',
-                  userSelect: 'none',
+                display: 'flex',
+                flexDirection: 'column',
+                padding: '24px 20px',
+                cursor: isActive ? 'default' : 'grab',
+                userSelect: 'none',
+                boxShadow: isActive
+                    ? '0 0 30px rgba(124,58,237,0.4), 0 0 60px rgba(124,58,237,0.15)'
+                    : '0 4px 20px rgba(0,0,0,0.4)',
+                overflow: 'hidden',
                 }}
               >
                 <span style={{ fontSize: '32px', marginBottom: '12px' }}>
@@ -107,12 +111,26 @@ export default function DomainCards() {
                 }}>
                   {card.title}
                 </h3>
-
+                {/* Shine streak */}
+                {isActive && (
+                <div style={{
+                    position: 'absolute',
+                    top: '-50%',
+                    left: '-50%',
+                    width: '60%',
+                    height: '200%',
+                    background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%)',
+                    transform: 'rotate(15deg)',
+                    pointerEvents: 'none',
+                    zIndex: 1,
+                }} />
+                )}
                 {/* Only show skills preview on active card */}
                 {isActive && (
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
+                    whileTap={{ scale: isActive ? 1.0 : 0.88 }}
                     transition={{ delay: 0.15 }}
                     style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}
                   >

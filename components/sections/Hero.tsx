@@ -10,6 +10,8 @@ import { counterItems, heroMarqueeItems } from '@/lib/constants'
 import Image from 'next/image'
 import { ArrowDown } from 'lucide-react'
 import { TypeAnimation } from 'react-type-animation'
+
+
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
@@ -164,25 +166,13 @@ export default function Hero() {
             <a href="#projects" className="btn-primary">
               View My Work <ArrowDown size={16} />
             </a>
-            <div className="resume-btn-wrapper">
-              <button className="btn-outline">Resume ↓</button>
-              <div className="resume-dropdown">
-                <a href="/resume-visual.pdf" target="_blank" className="resume-option">
-                  <span>🎨</span>
-                  <div>
-                    <div>Visual Resume</div>
-                    <span>For Humans</span>
-                  </div>
+            <a href="/resume-ats.pdf"
+                download="Mohak_Rathod_Resume.pdf"
+                className='btn-outline'
+            >
+                Resume ↓
                 </a>
-                <a href="/resume-ats.pdf" target="_blank" className="resume-option">
-                  <span>📄</span>
-                  <div>
-                    <div>ATS Resume</div>
-                    <span>For Recruiters</span>
-                  </div>
-                </a>
-              </div>
-            </div>
+        
           </div>
         </div>
 
