@@ -332,7 +332,7 @@ export default function Books() {
                 title={book.title}
                 author={book.author}
                 cover={book.cover}
-                progress={book.progress}
+                progress={book.progress ?? 0}
                 accent={readingAccents[i % readingAccents.length]}
               />
             ))}

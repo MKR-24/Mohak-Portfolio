@@ -175,19 +175,26 @@ export const books = {
       rating: 5,
       takeaway: 'When you want something, all the universe conspires in helping you to achieve it.',
     },
+    {
+    title: 'Cloud Computing: A Bottom-Up Approach',
+    author: 'Dr. Ming Zhao',
+    cover: '/images/books/cloud-computing.jpeg',
+
+    link: null,
+    },
   ],
   reading: [
     {
       title: 'Designing Data-Intensive Applications',
       author: 'Martin Kleppmann',
       cover: 'https://covers.openlibrary.org/b/isbn/9781449373320-L.jpg',
-      progress: 45,
+      progress: 15,
     },
     {
       title: 'AI Engineering',
       author: 'Chip Huyen',
       cover: 'https://covers.openlibrary.org/b/isbn/9781098166304-L.jpg',
-      progress: 30,
+      progress: 10,
     },
     {
     title: 'Hands-On Large Language Models',
@@ -195,12 +202,18 @@ export const books = {
     cover: 'https://covers.openlibrary.org/b/isbn/9781098150969-L.jpg',
     link: 'https://learning-oreilly-com.ezproxy1.lib.asu.edu/library/view/-/9798341621480/',
     },
+    {
+      title: 'Software Architecture Patterns',
+      author: 'Mark Richards',
+      cover: '/images/books/software.jpg',
+      progress: 10,
+    },
   ],
   willRead: [
     {
       title: 'Hands-On LLM Serving and Optimization',
       author: "Chi Wang",
-      cover: 'https://covers.openlibrary.org/b/isbn/9798341621480-L.jpg',
+      cover: '/images/books/llm.jpeg',
       link: 'https://learning-oreilly-com.ezproxy1.lib.asu.edu/library/view/-/9798341621480/',
     },
     {
