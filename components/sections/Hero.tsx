@@ -11,11 +11,13 @@ import Image from 'next/image'
 import { ArrowDown } from 'lucide-react'
 import { TypeAnimation } from 'react-type-animation'
 import FloatingGeometry from '../ui/FloatingGeometry'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
   const [hoveringPhoto, setHoveringPhoto] = useState(false)
+  const isMobile =useIsMobile()
   const { ref: counterRef, inView: counterInView } = useInView({
     triggerOnce: true,
     threshold: 0.3,
@@ -66,10 +68,10 @@ export default function Hero() {
         zIndex: 10,
         maxWidth: '1280px',
         margin: '0 auto',
-        padding: '120px 48px 60px',
+        padding: isMobile ? '120px 48px 60px': '120px 48px 60px',
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: '64px',
+        gridTemplateColumns: isMobile ? '1fr': '1fr 1fr',
+        gap: isMobile ? '32px':'64px',
         alignItems: 'center',
         width: '100%',
       }}>
@@ -182,7 +184,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, delay: 0.5 }}
-          style={{ position: 'relative', display: 'flex', justifyContent: 'flex-end' }}
+          style={{ position: 'relative', display: 'flex', justifyContent: isMobile ? 'center': 'flex-end' }}
         >
           {/* Hover hint */}
           <div style={{
@@ -212,8 +214,8 @@ export default function Hero() {
             onMouseLeave={() => setHoveringPhoto(false)}
             style={{
               position: 'relative',
-              width: '340px',
-              height: '420px',
+              width: isMobile ? '100%':'340px',
+              height: isMobile ? '300px':'420px',
               cursor: 'pointer',
               borderRadius: '20px',
             }}
@@ -285,12 +287,12 @@ export default function Hero() {
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             style={{
               position: 'absolute',
-              bottom: '-16px',
-              left: '-16px',
+              bottom: isMobile ? '-8px': '-16px',
+              left: isMobile ? '8px': '-16px',
               background: 'var(--color-black-3)',
               border: '1px solid rgba(37,99,235,0.3)',
               borderRadius: '12px',
-              padding: '12px 16px',
+              padding: isMobile ? '8px 12px':'12px 16px',
               display: 'flex',
               alignItems: 'center',
               gap: '10px',
@@ -314,10 +316,10 @@ export default function Hero() {
           zIndex: 10,
           maxWidth: '1280px',
           margin: '0 auto',
-          padding: '0 48px 60px',
+          padding: isMobile ? '0 24px 40px' :'0 48px 60px',
           width: '100%',
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
+          gridTemplateColumns: isMobile ? 'repeat(2, 1fr)': 'repeat(4, 1fr)',
           gap: '16px',
         }}
       >

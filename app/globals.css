@@ -231,3 +231,26 @@ h1, h2, h3, h4, h5, h6 {
 .skill-card:active {
   cursor: grabbing;
 }
+
+/* Mobile breakpoints */
+@media (max-width: 768px) {
+  .desktop-only { display: none !important; }
+  .mobile-stack { 
+    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
+  }
+  .mobile-padding {
+    padding: 60px 20px !important;
+  }
+  .mobile-text-sm {
+    font-size: clamp(28px, 8vw, 48px) !important;
+  }
+
+  .hidden-mobile{
+    display: none !important;
+  }
+
+  .show-mobile{
+    display: flex !important;
+  }
+}
