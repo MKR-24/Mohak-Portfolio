@@ -9,7 +9,7 @@ import { useInView } from 'react-intersection-observer'
 import { counterItems, heroMarqueeItems } from '@/lib/constants'
 import Image from 'next/image'
 import { ArrowDown } from 'lucide-react'
-
+import { TypeAnimation } from 'react-type-animation'
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
@@ -76,6 +76,28 @@ export default function Hero() {
 
           {/* Label */}
           <div className="hero-line" style={{ marginBottom: '20px' }}>
+            {/* Typing greeting */}
+            <div className="hero-line" style={{ marginBottom: '12px' }}>
+            <TypeAnimation
+                sequence={[
+                'Hey, I am Mohak Rathod 🙋🏼‍♂️', 2000,
+                'Hola, soy Mohak Rathod 🙋🏼‍♂️', 2000,
+                'નમસ્તે, હું મોહક રાઠોડ છું 🙏🏼', 2000,
+                'Bonjour, je suis Mohak Rathod 👋', 2000,
+                'Hallo, ich bin Mohak Rathod 👋', 2000,
+                '안녕하세요, 저는 Mohak Rathod입니다 🙇🏼‍♂️', 2000,
+                'こんにちは、私はMohak Rathod です 🙇🏼‍♂️', 2000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+                style={{
+                fontSize: '18px',
+                color: 'var(--color-muted)',
+                fontFamily: 'var(--font-body)',
+                }}
+            />
+            </div>
             <span className="purple-pill">MS CS @ Arizona State University</span>
           </div>
 
@@ -106,7 +128,37 @@ export default function Hero() {
               Currently looking for Summer/Fall 2026 roles.
             </p>
           </div>
-
+          {/* Bhagavad Gita quote */}
+            <div className="hero-line" style={{
+            borderLeft: '2px solid rgba(124,58,237,0.4)',
+            paddingLeft: '16px',
+            marginBottom: '36px',
+            }}>
+            <div style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: '15px',
+                color: 'var(--color-purple-light)',
+                marginBottom: '4px',
+                letterSpacing: '0.3px',
+            }}>
+                કર્મ કર, ફળની ચિંતા ન કર
+            </div>
+            <div style={{
+                fontSize: '13px',
+                color: 'var(--color-muted)',
+                fontStyle: 'italic',
+                marginBottom: '2px',
+            }}>
+                &quot;Do the deed, not desire the fruit.&quot;
+            </div>
+            <div style={{
+                fontSize: '11px',
+                color: 'rgba(139,139,160,0.6)',
+                letterSpacing: '1px',
+            }}>
+                — Bhagavad Gita
+            </div>
+            </div>
           {/* CTAs */}
           <div className="hero-line" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <a href="#projects" className="btn-primary">

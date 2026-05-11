@@ -16,6 +16,21 @@ export default function NavBar() {
         window.addEventListener('scroll',handleScroll)
         return () => window.removeEventListener('scroll',handleScroll)
     }, [])
+
+    const [scrollProgress, setScrollProgress] = useState(0)
+
+    useEffect(() => {
+    const handleScroll = () => {
+        setScrolled(window.scrollY > 20)
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight
+        const progress = (window.scrollY / totalHeight) * 100
+        setScrollProgress(progress)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
+
     return (
         <motion.header
             initial={{ y: -80, opacity: 0 }}
@@ -49,8 +64,20 @@ export default function NavBar() {
             letterSpacing: '-0.5px',
             }}
         >
-            Mohak<span style={{ color: 'var(--color-purple-light)' }}>.</span>
+            <span style={{ fontFamily: 'serif' }}>મોહ</span>ak
+            <span style={{ color: 'var(--color-purple-light)' }}>.</span>
         </a>
+        {/* Scroll progress bar */}
+        <div style={{
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        height: '2px',
+        width: `${scrollProgress}%`,
+        background: 'linear-gradient(90deg, var(--color-purple-dark), var(--color-purple-light))',
+        transition: 'width 0.1s linear',
+        zIndex: 100,
+        }} />
         {/* Desktop nav links */}
         <nav style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
         {navLinks.map(({ name, href }) => (

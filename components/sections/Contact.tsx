@@ -30,14 +30,25 @@ export default function Contact() {
   }
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
-    e.preventDefault()
-    setStatus('sending')
-    // TODO: wire up Resend or Formspree here
-    await new Promise(r => setTimeout(r, 1200))
-    setStatus('sent')
-    setForm({ name: '', email: '', message: '' })
-    setTimeout(() => setStatus('idle'), 4000)
+  e.preventDefault()
+  setStatus('sending')
+  try {
+    const res = await fetch('https://formspree.io/f/mojryvbg', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    })
+    if (res.ok) {
+      setStatus('sent')
+      setForm({ name: '', email: '', message: '' })
+      setTimeout(() => setStatus('idle'), 4000)
+    } else {
+      setStatus('error')
+    }
+  } catch {
+    setStatus('error')
   }
+}
 
  const socials = [
   {
@@ -55,8 +66,8 @@ export default function Contact() {
   {
     icon: Mail,
     label: 'Email',
-    href: 'mailto:mrathod4@asu.edu',
-    handle: 'mrathod4@asu.edu',
+    href: 'mailto:mohak0678@gmail.com',
+    handle: 'mohak0678@gmail.com',
   },
 ]
 
