@@ -4,6 +4,8 @@ import DomainCards from "@/components/sections/DomainCards"
 import Projects from "@/components/sections/Projects"
 import Research from "@/components/sections/Research"
 import Books from "@/components/sections/Books"
+import Contact from "@/components/sections/Contact"
+import Footer from "@/components/sections/Footer"
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
     <Projects/>
     <Research/>
     <Books/>
+    <Contact/>
+    <Footer />
   </main>
   )
 }
