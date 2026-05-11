@@ -23,13 +23,13 @@ function FeaturedProject({ project }: { project: typeof projects[0] }) {
       transition={{ duration: 0.8 }}
       style={{
         borderRadius: '20px',
-        border: '1px solid rgba(124,58,237,0.2)',
+        border: '1px solid rgba(37,99,235,0.2)',
         background: 'var(--color-black-3)',
         overflow: 'hidden',
         marginBottom: '24px',
         transition: 'border-color 0.3s ease',
       }}
-      whileHover={{ borderColor: 'rgba(124,58,237,0.5)' }}
+      whileHover={{ borderColor: 'rgba(37,99,235,0.5)' }}
     >
       <div style={{
         display: 'grid',
@@ -56,7 +56,7 @@ function FeaturedProject({ project }: { project: typeof projects[0] }) {
             style={{
               position: 'absolute',
               inset: 0,
-              background: 'rgba(124,58,237,0.88)',
+              background: 'rgba(37,99,235,0.88)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -129,7 +129,7 @@ function FeaturedProject({ project }: { project: typeof projects[0] }) {
               {project.title}
             </h3>
             <p style={{
-              color: 'var(--color-purple-light)',
+              color: 'var(--color-blue-light)',
               fontSize: '14px',
               marginBottom: '20px',
               fontWeight: 500,
@@ -201,7 +201,7 @@ function FeaturedProject({ project }: { project: typeof projects[0] }) {
                   alignItems: 'center',
                   gap: '6px',
                   fontSize: '13px',
-                  color: 'var(--color-purple-light)',
+                  color: 'var(--color-blue-light)',
                   textDecoration: 'none',
                 }}
               >
@@ -228,16 +228,16 @@ function SmallProject({ project, delay }: { project: typeof projects[0], delay: 
       transition={{ duration: 0.7, delay }}
       style={{
         borderRadius: '16px',
-        border: '1px solid rgba(124,58,237,0.2)',
+        border: '1px solid rgba(37,99,235,0.2)',
         background: 'var(--color-black-3)',
         overflow: 'hidden',
         transition: 'all 0.3s ease',
         cursor: 'pointer',
       }}
       whileHover={{
-        borderColor: 'rgba(124,58,237,0.5)',
+        borderColor: 'rgba(37,99,235,0.5)',
         y: -4,
-        boxShadow: '0 20px 60px rgba(124,58,237,0.12)',
+        boxShadow: '0 20px 60px rgba(37,99,235,0.12)',
       }}
     >
 
@@ -262,7 +262,7 @@ function SmallProject({ project, delay }: { project: typeof projects[0], delay: 
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'rgba(124,58,237,0.85)',
+            background: 'rgba(37,99,235,0.85)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -390,7 +390,7 @@ export default function Projects() {
           transition={{ duration: 0.7 }}
           style={{ marginBottom: '48px' }}
         >
-          <span className="purple-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
+          <span className="label-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
             Work
           </span>
           <h2 className="section-title">Recent Projects</h2>

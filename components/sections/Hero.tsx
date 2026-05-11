@@ -10,7 +10,7 @@ import { counterItems, heroMarqueeItems } from '@/lib/constants'
 import Image from 'next/image'
 import { ArrowDown } from 'lucide-react'
 import { TypeAnimation } from 'react-type-animation'
-
+import FloatingGeometry from '../ui/FloatingGeometry'
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -55,10 +55,11 @@ export default function Hero() {
         width: '600px',
         height: '600px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
-
+      {/* 3D Geometry */}
+      <FloatingGeometry />
       {/* Main content grid */}
       <div style={{
         position: 'relative',
@@ -100,7 +101,7 @@ export default function Hero() {
                 }}
             />
             </div>
-            <span className="purple-pill">MS CS @ Arizona State University</span>
+            <span className="label-pill">MS CS @ Arizona State University</span>
           </div>
 
           {/* Headline */}
@@ -132,14 +133,14 @@ export default function Hero() {
           </div>
           {/* Bhagavad Gita quote */}
             <div className="hero-line" style={{
-            borderLeft: '2px solid rgba(124,58,237,0.4)',
+            borderLeft: '2px solid rgba(37,99,235,0.4)',
             paddingLeft: '16px',
             marginBottom: '36px',
             }}>
             <div style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: '15px',
-                color: 'var(--color-purple-light)',
+                color: 'var(--color-blue-light)',
                 marginBottom: '4px',
                 letterSpacing: '0.3px',
             }}>
@@ -198,7 +199,7 @@ export default function Hero() {
               width: '6px',
               height: '6px',
               borderRadius: '50%',
-              background: 'var(--color-purple-light)',
+              background: 'var(--color-blue-light)',
               display: 'inline-block',
               animation: 'pulse 2s infinite',
             }} />
@@ -221,7 +222,7 @@ export default function Hero() {
             <div style={{
               position: 'absolute',
               inset: '-20px',
-              background: 'radial-gradient(ellipse at center, rgba(124,58,237,0.3) 0%, transparent 70%)',
+              background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.3) 0%, transparent 70%)',
               borderRadius: '24px',
               zIndex: 0,
             }} />
@@ -235,10 +236,12 @@ export default function Hero() {
                 objectFit: 'cover',
                 objectPosition: 'top',
                 borderRadius: '20px',
+                position:'absolute',
+                inset:0,
                 zIndex: 1,
                 transition: 'opacity 0.5s ease, transform 0.5s ease',
-                opacity: hoveringPhoto ? 0 : 1,
-                transform: hoveringPhoto ? 'scale(0.97)' : 'scale(1)',
+                opacity: hoveringPhoto ? 1 : 0,
+                transform: hoveringPhoto ? 'scale(1)' : 'scale(1.03)',
               }}
               priority
             />
@@ -252,10 +255,12 @@ export default function Hero() {
                 objectFit: 'cover',
                 objectPosition: 'top',
                 borderRadius: '20px',
+                position:'absolute',
+                inset:0,
                 zIndex: 2,
                 transition: 'opacity 0.5s ease, transform 0.5s ease',
-                opacity: hoveringPhoto ? 1 : 0,
-                transform: hoveringPhoto ? 'scale(1)' : 'scale(1.03)',
+                opacity: hoveringPhoto ? 0 : 1,
+                transform: hoveringPhoto ? 'scale(0.97)' : 'scale(1)',
               }}
               priority
             />
@@ -266,8 +271,8 @@ export default function Hero() {
               inset: 0,
               borderRadius: '20px',
               border: hoveringPhoto
-                ? '2px solid var(--color-purple-light)'
-                : '1px solid rgba(124,58,237,0.3)',
+                ? '2px solid var(--color-blue-light)'
+                : '1px solid rgba(37,99,235,0.3)',
               zIndex: 3,
               transition: 'border 0.4s ease',
               pointerEvents: 'none',
@@ -283,7 +288,7 @@ export default function Hero() {
               bottom: '-16px',
               left: '-16px',
               background: 'var(--color-black-3)',
-              border: '1px solid rgba(124,58,237,0.3)',
+              border: '1px solid rgba(37,99,235,0.3)',
               borderRadius: '12px',
               padding: '12px 16px',
               display: 'flex',
@@ -345,8 +350,8 @@ export default function Hero() {
 
       {/* Marquee strip */}
       <div style={{
-        borderTop: '1px solid rgba(124,58,237,0.15)',
-        borderBottom: '1px solid rgba(124,58,237,0.15)',
+        borderTop: '1px solid rgba(37,99,235,0.15)',
+        borderBottom: '1px solid rgba(37,99,235,0.15)',
         background: 'rgba(13,13,20,0.6)',
         padding: '14px 0',
         overflow: 'hidden',
@@ -368,7 +373,7 @@ export default function Hero() {
                 whiteSpace: 'nowrap',
               }}
             >
-              <span style={{ color: 'var(--color-purple-light)', fontSize: '10px' }}>✦</span>
+              <span style={{ color: 'var(--color-blue-light)', fontSize: '10px' }}>✦</span>
               {item}
             </span>
           ))}

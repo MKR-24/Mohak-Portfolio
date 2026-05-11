@@ -29,7 +29,7 @@ export default function DomainCards() {
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'radial-gradient(ellipse at center, rgba(124,58,237,0.08) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse at center, rgba(,58,237,0.08) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
@@ -42,7 +42,7 @@ export default function DomainCards() {
           transition={{ duration: 0.7 }}
           style={{ textAlign: 'center', marginBottom: '80px' }}
         >
-          <span className="purple-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
+          <span className="label-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
             Expertise
           </span>
           <h2 className="section-title">What I bring to a product</h2>
@@ -83,10 +83,10 @@ export default function DomainCards() {
                 height: '260px',
                 borderRadius: '20px',
                 border: isActive
-                    ? '2px solid rgba(167,139,250,0.8)'
-                    : '1px solid rgba(124,58,237,0.4)',
+                    ? '2px solid rgba(96,165,250,0.8)'
+                    : '1px solid rgba(37,99,235,0.4)',
                 background: isActive
-                    ? 'linear-gradient(135deg, #3b0fa0 0%, #7C3AED 50%, #9333ea 100%)'
+                    ? 'linear-gradient(135deg, #1D4ED8 0%, #2563EB 50%, #3B82F6 100%)'
                     : 'var(--color-black-3)',
                 display: 'flex',
                 flexDirection: 'column',
@@ -94,7 +94,7 @@ export default function DomainCards() {
                 cursor: isActive ? 'default' : 'grab',
                 userSelect: 'none',
                 boxShadow: isActive
-                    ? '0 0 30px rgba(124,58,237,0.4), 0 0 60px rgba(124,58,237,0.15)'
+                    ? '0 0 30px rgba(37,99,235,0.4), 0 0 60px rgba(37,99,235,0.15)'
                     : '0 4px 20px rgba(0,0,0,0.4)',
                 overflow: 'hidden',
                 }}
@@ -130,7 +130,6 @@ export default function DomainCards() {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    whileTap={{ scale: isActive ? 1.0 : 0.88 }}
                     transition={{ delay: 0.15 }}
                     style={{ marginTop: '12px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}
                   >
@@ -168,7 +167,7 @@ export default function DomainCards() {
             whiteSpace: 'nowrap',
           }}>
             Pick a card
-            <span style={{ color: 'var(--color-purple-light)' }}>↓</span>
+            <span style={{ color: 'var(--color-blue-light)' }}>↓</span>
           </div>
         </motion.div>
 
@@ -223,9 +222,9 @@ export default function DomainCards() {
                       fontSize: '13px',
                       padding: '6px 14px',
                       borderRadius: '100px',
-                      border: '1px solid rgba(124,58,237,0.35)',
-                      color: 'var(--color-purple-light)',
-                      background: 'rgba(124,58,237,0.08)',
+                      border: '1px solid rgba(37,99,235,0.35)',
+                      color: 'var(--color-blue-light)',
+                      background: 'rgba(37,99,235,0.08)',
                     }}
                   >
                     {skill}
@@ -262,7 +261,7 @@ export default function DomainCards() {
                       width: '6px',
                       height: '6px',
                       borderRadius: '50%',
-                      background: 'var(--color-purple-light)',
+                      background: 'var(--color-blue-light)',
                       flexShrink: 0,
                     }} />
                     {p}

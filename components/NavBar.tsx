@@ -35,10 +35,10 @@ export default function NavBar() {
         alignItems: 'center',
         justifyContent: 'space-between',
         transition: 'all 0.3s ease',
-        background: scrolled ? 'rgba(5,5,8,0.9)' : 'transparent',
+        background: scrolled ? 'rgba(10,15,30,0.9)' : 'transparent',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
         borderBottom: scrolled
-          ? '1px solid rgba(124,58,237,0.2)'
+          ? '1px solid rgba(37,99,235,0.2)'
           : '1px solid transparent',
       }}
     >
@@ -49,7 +49,7 @@ export default function NavBar() {
         left: 0,
         height: '2px',
         width: `${scrollProgress}%`,
-        background: 'linear-gradient(90deg, var(--color-purple-dark), var(--color-purple-light))',
+        background: 'linear-gradient(90deg, var(--color-blue-dark), var(--color-blue-light))',
         transition: 'width 0.1s linear',
         zIndex: 100,
       }} />
@@ -67,7 +67,7 @@ export default function NavBar() {
         }}
       >
         <span style={{ fontFamily: 'serif' }}>મોહ</span>ak
-        <span style={{ color: 'var(--color-purple-light)' }}>.</span>
+        <span style={{ color: 'var(--color-blue-light)' }}>.</span>
       </a>
 
       {/* Desktop nav links */}

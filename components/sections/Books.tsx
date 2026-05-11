@@ -83,7 +83,7 @@ function BookSpine({
           left: '50%',
           transform: 'translateX(-50%)',
           background: 'var(--color-black-4)',
-          border: '1px solid rgba(124,58,237,0.3)',
+          border: '1px solid rgba(37,99,235,0.3)',
           borderRadius: '10px',
           padding: '10px 14px',
           width: '160px',
@@ -173,7 +173,7 @@ function ReadingBook({
           transition={{ duration: 1, ease: 'easeOut' }}
           style={{
             height: '100%',
-            background: 'var(--color-purple-light)',
+            background: 'var(--color-blue-light)',
             borderRadius: '2px',
           }}
         />
@@ -197,7 +197,7 @@ function ReadingBook({
           left: '50%',
           transform: 'translateX(-50%)',
           background: 'var(--color-black-4)',
-          border: '1px solid rgba(124,58,237,0.3)',
+          border: '1px solid rgba(37,99,235,0.3)',
           borderRadius: '10px',
           padding: '10px 14px',
           width: '160px',
@@ -304,7 +304,7 @@ export default function Books() {
           transition={{ duration: 0.7 }}
           style={{ marginBottom: '56px' }}
         >
-          <span className="purple-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
+          <span className="label-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
             Reading List
           </span>
           <h2 className="section-title">Books on my shelf</h2>
@@ -325,7 +325,7 @@ export default function Books() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           {/* Currently Reading shelf */}
-          <Shelf label="Currently Reading" labelColor="#a78bfa">
+          <Shelf label="Currently Reading" labelColor="#60A5FA">
             {books.reading.map((book, i) => (
               <ReadingBook
                 key={book.title}

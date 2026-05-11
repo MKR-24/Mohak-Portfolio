@@ -1,27 +1,27 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight:['400','600','700','800'],
+  weight:['400','500','600','700'],
 })
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const inter = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
-  weight:['400','600','700','800'],
+  weight:['300','400','500'],
 })
 
 export const metadata: Metadata = {
-  title: "Mohak Rathod | Full Stack Developer",
-  description: "Developer from India building full-stack apps, AI tools, and data-driven solutions.",
-  keywords:['Mohak Rathod', 'MKR','Full Stack Developer','AI', 'MERN', 'Next.js'],
+  title: "Mohak Rathod | Software Engineer",
+  description: "MS CS at Arizona State University (4.0 GPA).Building distributed systems, AI pipelines, and secure backend infrastructure. Open to SWE,AI/ML, and data science roles.",
+  keywords:['Mohak Rathod', 'Software Engineer','Distributed Systems','AI Engineer', 'Backend Engineer', 'Data Science', 'ASU', 'Full Stack'],
   authors:[{name: 'Mohak Rathod'}],
   openGraph:{
-    title: 'Mohak Rathod | Full Stack Developer',
-    description: 'Developer from India building full-stack apps, AI tools, and data driven solutions.',
+    title: 'Mohak Rathod | Software Engineer',
+    description: 'MS CS at ASU (4.0 GPA).Distributed systems, AI pipelines, and secure backend infrastructure. Open to global opportunities.',
     type: 'website',
   },
 }
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="bg-black text-white antialiased">{children}</body>
     </html>

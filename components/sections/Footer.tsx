@@ -27,7 +27,7 @@ export default function Footer() {
 }}>
         <span style={{ fontFamily: 'serif', lineHeight: 1 }}>મોહ</span>
         <span>ak</span>
-        <span style={{ color: 'var(--color-purple-light)' }}>.</span>
+        <span style={{ color: 'var(--color-blue-light)' }}>.</span>
         </span>
         <span>Designed & built by Mohak Rathod · {new Date().getFullYear()}</span>
         <a

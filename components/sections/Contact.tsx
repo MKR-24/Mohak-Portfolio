@@ -33,7 +33,7 @@ export default function Contact() {
   e.preventDefault()
   setStatus('sending')
   try {
-    const res = await fetch('process.env.NEXT_PUBLIC_FORMSPREE_URL', {
+    const res = await fetch(process.env.NEXT_PUBLIC_FORMSPREE_URL!, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),
@@ -89,7 +89,7 @@ export default function Contact() {
         transform: 'translate(-50%, -50%)',
         width: '600px',
         height: '600px',
-        background: 'radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
     
@@ -110,7 +110,7 @@ export default function Contact() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <span className="purple-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
+            <span className="label-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
               Contact
             </span>
             <h2 className="section-title" style={{ marginBottom: '20px' }}>
@@ -124,8 +124,7 @@ export default function Contact() {
               marginBottom: '48px',
               maxWidth: '400px',
             }}>
-              Open to full-time roles, research collaborations, and interesting
-              projects. Based in Tempe, AZ. I will reply within 24 hours.
+              Open to full-time and internship roles in software engineering, AI and data science. Based in Tempe, AZ. I will reply within 24 hours.
             </p>
 
             {/* Socials */}
@@ -145,7 +144,7 @@ export default function Contact() {
                   }}
                   onMouseEnter={e => {
                     const el = e.currentTarget.querySelector('.handle') as HTMLElement
-                    if (el) el.style.color = 'var(--color-purple-light)'
+                    if (el) el.style.color = 'var(--color-blue-light)'
                   }}
                   onMouseLeave={e => {
                     const el = e.currentTarget.querySelector('.handle') as HTMLElement
@@ -156,7 +155,7 @@ export default function Contact() {
                     width: '44px',
                     height: '44px',
                     borderRadius: '12px',
-                    border: '1px solid rgba(124,58,237,0.2)',
+                    border: '1px solid rgba(37,99,235,0.2)',
                     background: 'var(--color-black-3)',
                     display: 'flex',
                     alignItems: 'center',
@@ -191,7 +190,7 @@ export default function Contact() {
               marginTop: '40px',
               padding: '10px 16px',
               borderRadius: '10px',
-              border: '1px solid rgba(124,58,237,0.2)',
+              border: '1px solid rgba(37,99,235,0.2)',
               background: 'var(--color-black-3)',
               fontSize: '13px',
               color: 'var(--color-muted)',
@@ -216,7 +215,7 @@ export default function Contact() {
           >
             <div style={{
               background: 'var(--color-black-3)',
-              border: '1px solid rgba(124,58,237,0.2)',
+              border: '1px solid rgba(37,99,235,0.2)',
               borderRadius: '20px',
               padding: '40px',
             }}>
@@ -267,7 +266,7 @@ export default function Contact() {
                         style={{
                           width: '100%',
                           background: 'var(--color-black-2)',
-                          border: '1px solid rgba(124,58,237,0.2)',
+                          border: '1px solid rgba(37,99,235,0.2)',
                           borderRadius: '10px',
                           padding: '12px 16px',
                           color: 'var(--color-white)',
@@ -276,8 +275,8 @@ export default function Contact() {
                           transition: 'border-color 0.2s',
                           fontFamily: 'var(--font-body)',
                         }}
-                        onFocus={e => e.currentTarget.style.borderColor = 'var(--color-purple)'}
-                        onBlur={e => e.currentTarget.style.borderColor = 'rgba(124,58,237,0.2)'}
+                        onFocus={e => e.currentTarget.style.borderColor = 'var(--color-blue)'}
+                        onBlur={e => e.currentTarget.style.borderColor = 'rgba(37,99,235,0.2)'}
                       />
                     </div>
                     <div>
@@ -302,7 +301,7 @@ export default function Contact() {
                         style={{
                           width: '100%',
                           background: 'var(--color-black-2)',
-                          border: '1px solid rgba(124,58,237,0.2)',
+                          border: '1px solid rgba(37,99,235,0.2)',
                           borderRadius: '10px',
                           padding: '12px 16px',
                           color: 'var(--color-white)',
@@ -311,8 +310,8 @@ export default function Contact() {
                           transition: 'border-color 0.2s',
                           fontFamily: 'var(--font-body)',
                         }}
-                        onFocus={e => e.currentTarget.style.borderColor = 'var(--color-purple)'}
-                        onBlur={e => e.currentTarget.style.borderColor = 'rgba(124,58,237,0.2)'}
+                        onFocus={e => e.currentTarget.style.borderColor = 'var(--color-blue)'}
+                        onBlur={e => e.currentTarget.style.borderColor = 'rgba(37,99,235,0.2)'}
                       />
                     </div>
                   </div>
@@ -339,7 +338,7 @@ export default function Contact() {
                       style={{
                         width: '100%',
                         background: 'var(--color-black-2)',
-                        border: '1px solid rgba(124,58,237,0.2)',
+                        border: '1px solid rgba(37,99,235,0.2)',
                         borderRadius: '10px',
                         padding: '12px 16px',
                         color: 'var(--color-white)',
@@ -349,8 +348,8 @@ export default function Contact() {
                         transition: 'border-color 0.2s',
                         fontFamily: 'var(--font-body)',
                       }}
-                      onFocus={e => e.currentTarget.style.borderColor = 'var(--color-purple)'}
-                      onBlur={e => e.currentTarget.style.borderColor = 'rgba(124,58,237,0.2)'}
+                      onFocus={e => e.currentTarget.style.borderColor = 'var(--color-blue)'}
+                      onBlur={e => e.currentTarget.style.borderColor = 'rgba(37,99,235,0.2)'}
                     />
                   </div>
 

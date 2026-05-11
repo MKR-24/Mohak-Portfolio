@@ -9,7 +9,7 @@ function StatusBadge({ status }: { status: string }) {
   const colors: Record<string, { bg: string; color: string }> = {
     'Published': { bg: 'rgba(74,222,128,0.1)', color: '#4ade80' },
     'In Review': { bg: 'rgba(251,191,36,0.1)', color: '#fbbf24' },
-    'In Publication': { bg: 'rgba(167,139,250,0.1)', color: '#a78bfa' },
+    'In Publication': { bg: 'rgba(167,139,250,0.1)', color: '#60A5FA' },
   }
   const style = colors[status] ?? colors['In Review']
 
@@ -49,7 +49,7 @@ export default function Research() {
         transform: 'translate(-50%, -50%)',
         width: '500px',
         height: '500px',
-        background: 'radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgab(37,99,235,0.06) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
@@ -63,7 +63,7 @@ export default function Research() {
           transition={{ duration: 0.7 }}
           style={{ marginBottom: '56px' }}
         >
-          <span className="purple-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
+          <span className="label-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
             Research
           </span>
           <h2 className="section-title">Published Work</h2>
@@ -96,8 +96,8 @@ export default function Research() {
                 alignItems: 'start',
               }}
               whileHover={{
-                borderColor: 'rgba(124,58,237,0.5)',
-                boxShadow: '0 0 30px rgba(124,58,237,0.08)',
+                borderColor: 'rgab(37,99,235,0.5)',
+                boxShadow: '0 0 30px rgab(37,99,235,0.08)',
               }}
             >
               {/* Left: paper info */}
@@ -151,9 +151,9 @@ export default function Research() {
                         fontSize: '11px',
                         padding: '3px 10px',
                         borderRadius: '100px',
-                        border: '1px solid rgba(124,58,237,0.25)',
-                        color: 'var(--color-purple-light)',
-                        background: 'rgba(124,58,237,0.06)',
+                        border: '1px solid rgab(37,99,235,0.25)',
+                        color: 'var(--color-blue-light)',
+                        background: 'rgab(37,99,235,0.06)',
                       }}
                     >
                       {tag}
@@ -174,13 +174,13 @@ export default function Research() {
                   width: '48px',
                   height: '48px',
                   borderRadius: '12px',
-                  background: 'rgba(124,58,237,0.1)',
-                  border: '1px solid rgba(124,58,237,0.2)',
+                  background: 'rgab(37,99,235,0.1)',
+                  border: '1px solid rgab(37,99,235,0.2)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}>
-                  <FileText size={20} style={{ color: 'var(--color-purple-light)' }} />
+                  <FileText size={20} style={{ color: 'var(--color-blue-light)' }} />
                 </div>
 
                 {paper.doi ? (
@@ -193,12 +193,12 @@ export default function Research() {
                       alignItems: 'center',
                       gap: '5px',
                       fontSize: '12px',
-                      color: 'var(--color-purple-light)',
+                      color: 'var(--color-blue-light)',
                       textDecoration: 'none',
                       fontWeight: 500,
                     }}
                     onMouseEnter={e => e.currentTarget.style.color = 'var(--color-white)'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'var(--color-purple-light)'}
+                    onMouseLeave={e => e.currentTarget.style.color = 'var(--color-blue-light)'}
                   >
                     <ExternalLink size={12} /> DOI
                   </a>
