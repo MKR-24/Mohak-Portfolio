@@ -153,48 +153,67 @@ export const research = [
 ]
 
 export const books = {
-  currentlyReading: [
-    {
-      title: 'Deep Work',
-      author: 'Cal Newport',
-      cover: 'https://covers.openlibrary.org/b/isbn/9781455586691-L.jpg',
-      progress: 65,
-    },
-    {
-      title: 'The Pragmatic Programmer',
-      author: 'David Thomas & Andrew Hunt',
-      cover: 'https://covers.openlibrary.org/b/isbn/9780135957059-L.jpg',
-      progress: 40,
-    },
-  ],
   completed: [
     {
-      title: 'Atomic Habits',
-      author: 'James Clear',
-      cover: 'https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg',
+      title: 'Ikigai',
+      author: 'Héctor García & Francesc Miralles',
+      cover: 'https://covers.openlibrary.org/b/isbn/9780143130727-L.jpg',
       rating: 5,
-      takeaway: 'Systems beat goals every time.',
+      takeaway: 'Purpose is found at the intersection of what you love, what you are good at, what the world needs, and what you can be paid for.',
     },
     {
-      title: 'Clean Code',
-      author: 'Robert C. Martin',
-      cover: 'https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg',
+      title: 'The Psychology of Money',
+      author: 'Morgan Housel',
+      cover: 'https://covers.openlibrary.org/b/isbn/9780857197689-L.jpg',
       rating: 5,
-      takeaway: 'Code is read far more than written.',
+      takeaway: 'Wealth is what you don\'t spend. Financial success is more about behavior than intelligence.',
     },
     {
-      title: 'Zero to One',
-      author: 'Peter Thiel',
-      cover: 'https://covers.openlibrary.org/b/isbn/9780804139021-L.jpg',
-      rating: 4,
-      takeaway: "Build what doesn't exist yet.",
+      title: 'The Alchemist',
+      author: 'Paulo Coelho',
+      cover: 'https://covers.openlibrary.org/b/isbn/9780062315007-L.jpg',
+      rating: 5,
+      takeaway: 'When you want something, all the universe conspires in helping you to achieve it.',
+    },
+  ],
+  reading: [
+    {
+      title: 'Designing Data-Intensive Applications',
+      author: 'Martin Kleppmann',
+      cover: 'https://covers.openlibrary.org/b/isbn/9781449373320-L.jpg',
+      progress: 45,
     },
     {
-      title: 'The Lean Startup',
-      author: 'Eric Ries',
-      cover: 'https://covers.openlibrary.org/b/isbn/9780307887894-L.jpg',
-      rating: 4,
-      takeaway: 'Build, measure, learn — repeat.',
+      title: 'AI Engineering',
+      author: 'Chip Huyen',
+      cover: 'https://covers.openlibrary.org/b/isbn/9781098166304-L.jpg',
+      progress: 30,
+    },
+    {
+    title: 'Hands-On Large Language Models',
+    author: 'Jay Alammar & Maarten Grootendorst',
+    cover: 'https://covers.openlibrary.org/b/isbn/9781098150969-L.jpg',
+    link: 'https://learning-oreilly-com.ezproxy1.lib.asu.edu/library/view/-/9798341621480/',
+    },
+  ],
+  willRead: [
+    {
+      title: 'Hands-On LLM Serving and Optimization',
+      author: "Chi Wang",
+      cover: 'https://covers.openlibrary.org/b/isbn/9798341621480-L.jpg',
+      link: 'https://learning-oreilly-com.ezproxy1.lib.asu.edu/library/view/-/9798341621480/',
+    },
+    {
+      title: 'Team of Rivals',
+      author: 'Doris Kearns Goodwin',
+      cover: 'https://covers.openlibrary.org/b/isbn/9780743270755-L.jpg',
+      link: null,
+    },
+    {
+      title: 'The Curious Incident of the Dog in the Night-Time',
+      author: 'Mark Haddon',
+      cover: 'https://covers.openlibrary.org/b/isbn/9781400032716-L.jpg',
+      link: null,
     },
   ],
 }

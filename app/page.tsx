@@ -3,6 +3,7 @@ import Hero from "@/components/sections/Hero"
 import DomainCards from "@/components/sections/DomainCards"
 import Projects from "@/components/sections/Projects"
 import Research from "@/components/sections/Research"
+import Books from "@/components/sections/Books"
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
     <DomainCards/>
     <Projects/>
     <Research/>
+    <Books/>
   </main>
   )
 }
