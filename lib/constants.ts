@@ -15,8 +15,8 @@ export const heroMarqueeItems = [
 export const counterItems = [
   { value: 4, suffix: '.0', label: 'GPA at ASU' },
   { value: 3, suffix: '', label: 'Research Papers' },
-  { value: 6, suffix: '+', label: 'Systems Built' },
-  { value: 2, suffix: ' yrs', label: 'Industry Experience' },
+  { value: 20, suffix: '+', label: 'GitHub Repos' },
+  { value: 2, suffix: '', label: 'SOC Internships' },
 ]
 
 export const domainCards = [
