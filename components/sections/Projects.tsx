@@ -9,12 +9,12 @@ import { useGSAP } from '@gsap/react'
 import { projects } from '@/lib/constants'
 import Image from 'next/image'
 import { GitBranch, ExternalLink, ArrowRight } from 'lucide-react'
-
+import { useIsMobile } from '@/hooks/useIsMobile'
 gsap.registerPlugin(ScrollTrigger)
 
 function FeaturedProject({ project }: { project: typeof projects[0] }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
-
+  const isMobile = useIsMobile()
   return (
     <motion.div
       ref={ref}
@@ -33,10 +33,10 @@ function FeaturedProject({ project }: { project: typeof projects[0] }) {
     >
       <div style={{
         display: 'grid',
-        gridTemplateColumns: '60% 40%',
+        gridTemplateColumns: isMobile ? '1fr': '60% 40%',
       }}>
         {/* Image side */}
-        <div style={{ position: 'relative', height: '420px', overflow: 'hidden' }} className="project-img-wrap">
+        <div style={{ position: 'relative', height:isMobile ? '240px': '420px', overflow: 'hidden' }} className="project-img-wrap">
           {/* Placeholder when no image */}
           <div style={{
             position: 'absolute',
@@ -103,7 +103,7 @@ function FeaturedProject({ project }: { project: typeof projects[0] }) {
 
         {/* Content side */}
         <div style={{
-          padding: '40px 36px',
+          padding: isMobile ? '24px 20px': '40px 36px',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
@@ -217,7 +217,7 @@ function FeaturedProject({ project }: { project: typeof projects[0] }) {
 
 function SmallProject({ project, delay }: { project: typeof projects[0], delay: number }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
-
+  const isMobile =useIsMobile()
   return (
 
     <motion.div
@@ -377,9 +377,9 @@ export default function Projects() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
   const featured = projects.filter(p => p.featured)
   const rest = projects.filter(p => !p.featured)
-
+  const isMobile = useIsMobile()
   return (
-    <section id="projects" style={{ padding: '96px 48px' }}>
+    <section id="projects" style={{ padding: isMobile ? '60px 24px': '96px 48px' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
 
         {/* Heading */}
@@ -404,7 +404,7 @@ export default function Projects() {
         {/* Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateColumns: isMobile ? '1fr':'repeat(3, 1fr)',
           gap: '20px',
           marginTop: '8px',
         }}>
