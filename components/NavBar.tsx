@@ -73,9 +73,7 @@ export default function NavBar() {
             alignItems: 'center',
           }}
         >
-          <span style={{ fontFamily: 'serif', lineHeight: 1 }}>મોહ</span>
-          <span>ak</span>
-          <span style={{ color: 'var(--color-blue-light)' }}>.</span>
+        Mohak<span style={{ color: 'var(--color-blue-light)' }}>.</span>
         </a>
 
         {/* Desktop nav - hidden on mobile */}

@@ -20,7 +20,7 @@ export default function Footer() {
         color: 'var(--color-muted)',
         fontSize: '13px',
       }}>
-       <span style={{
+      <span style={{
   fontFamily: 'var(--font-display)',
   fontWeight: 800,
   fontSize: '16px',
@@ -28,9 +28,7 @@ export default function Footer() {
   display: 'inline-flex',
   alignItems: 'center',
 }}>
-        <span style={{ fontFamily: 'serif', lineHeight: 1 }}>મોહ</span>
-        <span>ak</span>
-        <span style={{ color: 'var(--color-blue-light)' }}>.</span>
+        Mohak<span style={{ color: 'var(--color-blue-light)' }}>.</span>
         </span>
         <span>Designed & built by Mohak Rathod · {new Date().getFullYear()}</span>
         <a
