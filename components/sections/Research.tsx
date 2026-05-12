@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { research } from '@/lib/constants'
 import { ExternalLink, FileText, Clock } from 'lucide-react'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 function StatusBadge({ status }: { status: string }) {
   const colors: Record<string, { bg: string; color: string }> = {
@@ -12,7 +13,7 @@ function StatusBadge({ status }: { status: string }) {
     'In Publication': { bg: 'rgba(167,139,250,0.1)', color: '#60A5FA' },
   }
   const style = colors[status] ?? colors['In Review']
-
+  
   return (
     <span style={{
       fontSize: '11px',
@@ -30,12 +31,12 @@ function StatusBadge({ status }: { status: string }) {
 
 export default function Research() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
-
+  const isMobile =useIsMobile()
   return (
     <section
       id="research"
       style={{
-        padding: '96px 48px',
+        padding: isMobile ? '60px 24px': '96px 48px',
         background: 'var(--color-black-2)',
         position: 'relative',
         overflow: 'hidden',
@@ -89,9 +90,9 @@ export default function Research() {
               className="card-glow"
               style={{
                 borderRadius: '16px',
-                padding: '32px 36px',
+                padding: isMobile? '24px 20px': '32px 36px',
                 display: 'grid',
-                gridTemplateColumns: '1fr auto',
+                gridTemplateColumns: isMobile ? '1fr': '1fr auto',
                 gap: '24px',
                 alignItems: 'start',
               }}
