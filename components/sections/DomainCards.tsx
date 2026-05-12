@@ -31,7 +31,7 @@ export default function DomainCards() {
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'radial-gradient(ellipse at center, rgba(,58,237,0.08) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.08) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
@@ -42,12 +42,21 @@ export default function DomainCards() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          style={{ textAlign: 'center', marginBottom: '80px' }}
+          style={{ marginBottom: '56px' }}
         >
           <span className="label-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
-            Expertise
+            Skills
           </span>
-          <h2 className="section-title">What I bring to a product</h2>
+          <h2 className="section-title">What I bring</h2>
+          <p style ={{
+            color:'var(--color-muted)',
+            fontSize: '16px',
+            marginTop:'12px',
+            maxWidth: '480px',
+            lineHeight : 1.6,
+          }}>
+            Click a card to explore my technical domains.
+          </p>
         </motion.div>
 
         {/* Card fan */}

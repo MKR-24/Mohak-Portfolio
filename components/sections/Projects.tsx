@@ -36,13 +36,26 @@ function FeaturedProject({ project }: { project: typeof projects[0] }) {
         gridTemplateColumns: isMobile ? '1fr': '60% 40%',
       }}>
         {/* Image side */}
-        <div style={{ position: 'relative', height:isMobile ? '240px': '420px', overflow: 'hidden' }} className="project-img-wrap">
-          <Image 
-          src={project.image}
-          alt ={project.title}
-          fill
-          style ={{objectFit:'cover'}}
-        />
+        <div style={{ position: 'relative', height: isMobile ? '240px' : '420px', overflow: 'hidden' }}>
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              style={{ objectFit: 'cover' }}
+            />
+          ) : (
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'linear-gradient(135deg, #0d1117 0%, #161b22 100%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+              <span style={{ fontSize: '64px' }}>⚙️</span>
+            </div>
+          )}
 
           {/* View project overlay */}
           <motion.div
@@ -383,12 +396,21 @@ export default function Projects() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          style={{ marginBottom: '48px' }}
+          style={{ marginBottom: '56px' }}
         >
           <span className="label-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
             Work
           </span>
           <h2 className="section-title">Recent Projects</h2>
+          <p style={{
+            color: 'var(--color-muted)',
+            fontSize: '16px',
+            marginTop: '12px',
+            maxWidth: '480px',
+            lineHeight: 1.6,
+          }}>
+            A selection of systems I &apos;ve built — distributed infrastructure to AI pipelines.
+          </p>
         </motion.div>
 
         {/* Featured projects */}

@@ -101,7 +101,7 @@ export default function Contact() {
         <div style={{
           display: 'grid',
           gridTemplateColumns: isMobile ? '1fr':'1fr 1fr',
-          gap: '80px',
+          gap: isMobile ? '32px' :'80px',
           alignItems: 'start',
         }}>
 

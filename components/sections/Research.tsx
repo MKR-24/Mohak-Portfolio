@@ -50,7 +50,7 @@ export default function Research() {
         transform: 'translate(-50%, -50%)',
         width: '500px',
         height: '500px',
-        background: 'radial-gradient(circle, rgab(37,99,235,0.06) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
 
@@ -97,8 +97,8 @@ export default function Research() {
                 alignItems: 'start',
               }}
               whileHover={{
-                borderColor: 'rgab(37,99,235,0.5)',
-                boxShadow: '0 0 30px rgab(37,99,235,0.08)',
+                borderColor: 'rgba(37,99,235,0.5)',
+                boxShadow: '0 0 30px rgba(37,99,235,0.08)',
               }}
             >
               {/* Left: paper info */}
@@ -152,9 +152,9 @@ export default function Research() {
                         fontSize: '11px',
                         padding: '3px 10px',
                         borderRadius: '100px',
-                        border: '1px solid rgab(37,99,235,0.25)',
+                        border: '1px solid rgba(37,99,235,0.25)',
                         color: 'var(--color-blue-light)',
-                        background: 'rgab(37,99,235,0.06)',
+                        background: 'rgba(37,99,235,0.06)',
                       }}
                     >
                       {tag}
@@ -175,8 +175,8 @@ export default function Research() {
                   width: '48px',
                   height: '48px',
                   borderRadius: '12px',
-                  background: 'rgab(37,99,235,0.1)',
-                  border: '1px solid rgab(37,99,235,0.2)',
+                  background: 'rgba(37,99,235,0.1)',
+                  border: '1px solid rgba(37,99,235,0.2)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
