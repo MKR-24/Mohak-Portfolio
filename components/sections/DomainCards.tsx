@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { domainCards } from '@/lib/constants'
 import { useIsMobile } from '@/hooks/useIsMobile'
-
+import { useRef } from 'react'
 const rotations = [-20, -10, 0, 10, 20]
 const translateY = [20, 8, 0, 8, 20]
 
@@ -15,7 +15,13 @@ export default function DomainCards() {
   const isMobile = useIsMobile()
   const active = domainCards[activeCard]
   const translateX = isMobile ? [-80,-40,0,40,80]:[-130, -65, 0, 65, 130]
-
+  const detailRef=useRef<HTMLDivElement>(null)
+  const handleCardClick = (i: number) => {
+  setActiveCard(i)
+  setTimeout(() => {
+    detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+  }, 300)
+}
   return (
     <section
       id="domains"
@@ -78,7 +84,7 @@ export default function DomainCards() {
             return (
               <motion.div
                 key={card.id}
-                onClick={() => setActiveCard(i)}
+                onClick={() => handleCardClick(i)}
                 animate={{
                   rotate: isActive ? 0 : rotations[i],
                   x: isActive ? 0 : translateX[i],
@@ -185,6 +191,7 @@ export default function DomainCards() {
         {/* Detail panel */}
         <AnimatePresence mode="wait">
           <motion.div
+            ref={detailRef}
             key={active.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -282,6 +289,7 @@ export default function DomainCards() {
             </div>
           </motion.div>
         </AnimatePresence>
+
       </div>
     </section>
   )
