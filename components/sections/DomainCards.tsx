@@ -4,16 +4,17 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { domainCards } from '@/lib/constants'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 const rotations = [-20, -10, 0, 10, 20]
-const translateX = [-130, -65, 0, 65, 130]
 const translateY = [20, 8, 0, 8, 20]
 
 export default function DomainCards() {
   const [activeCard, setActiveCard] = useState(2)
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 })
-
+  const isMobile = useIsMobile()
   const active = domainCards[activeCard]
+  const translateX = isMobile ? [-80,-40,0,40,80]:[-130, -65, 0, 65, 130]
 
   return (
     <section
@@ -21,7 +22,7 @@ export default function DomainCards() {
       ref={ref}
       style={{
         position: 'relative',
-        padding: '96px 48px',
+        padding: isMobile ? '60px 24px':'96px 48px',
         overflow: 'hidden',
       }}
     >
@@ -77,7 +78,7 @@ export default function DomainCards() {
                 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                 whileHover={!isActive ? { y: translateY[i] - 12, scale: 0.93 } : {}}
-               style={{
+                style={{
                 position: 'absolute',
                 width: '180px',
                 height: '260px',
@@ -182,11 +183,11 @@ export default function DomainCards() {
             className="card-glow"
             style={{
               borderRadius: '20px',
-              padding: '40px',
+              padding: isMobile ? '24px':'40px',
               marginTop: '48px',
               display: 'grid',
-              gridTemplateColumns: '1fr auto',
-              gap: '40px',
+              gridTemplateColumns: isMobile ? '1fr':'1fr auto',
+              gap: isMobile ? '24px':'40px',
               alignItems: 'start',
             }}
           >
