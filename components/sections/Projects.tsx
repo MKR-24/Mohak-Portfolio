@@ -409,7 +409,7 @@ export default function Projects() {
             maxWidth: '480px',
             lineHeight: 1.6,
           }}>
-            A selection of systems I &apos;ve built — distributed infrastructure to AI pipelines.
+            A selection of systems I&apos;ve built — distributed infrastructure to AI pipelines.
           </p>
         </motion.div>
 
