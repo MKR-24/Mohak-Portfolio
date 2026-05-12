@@ -24,6 +24,7 @@ export default function DomainCards() {
         position: 'relative',
         padding: isMobile ? '60px 24px':'96px 48px',
         overflow: 'hidden',
+        background: 'var(--color-black-2)',
       }}
     >
       {/* Background glow */}

@@ -68,7 +68,7 @@ export const projects = [
     title: 'Distributed Rate Limiter',
     subtitle: '3,000 req/s · 1.57ms avg latency',
     desc: 'Token-bucket rate limiter in Go + gRPC. Coordinates per-client state across instances via Redis. p99 latency under 12ms at peak load. Deployed on Kubernetes with Prometheus/Grafana auto-scaling.',
-    image: '/images/project1.jpg',
+    image: '/images/project1.png',
     impact: '3,000 req/s with 100% success across 60k requests',
     type: 'Distributed Systems',
     duration: 'Feb 2026',

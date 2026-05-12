@@ -37,17 +37,12 @@ function FeaturedProject({ project }: { project: typeof projects[0] }) {
       }}>
         {/* Image side */}
         <div style={{ position: 'relative', height:isMobile ? '240px': '420px', overflow: 'hidden' }} className="project-img-wrap">
-          {/* Placeholder when no image */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(135deg, #1a1a28 0%, #0d0d14 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-            <span style={{ fontSize: '64px' }}>⚙️</span>
-          </div>
+          <Image 
+          src={project.image}
+          alt ={project.title}
+          fill
+          style ={{objectFit:'cover'}}
+        />
 
           {/* View project overlay */}
           <motion.div
@@ -379,7 +374,7 @@ export default function Projects() {
   const rest = projects.filter(p => !p.featured)
   const isMobile = useIsMobile()
   return (
-    <section id="projects" style={{ padding: isMobile ? '60px 24px': '96px 48px' }}>
+    <section id="projects" style={{ padding: isMobile ? '60px 24px': '96px 48px', background:'var(--color-black)' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
 
         {/* Heading */}

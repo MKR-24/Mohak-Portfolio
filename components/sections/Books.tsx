@@ -293,7 +293,7 @@ export default function Books() {
   return (
     <section
       id="books"
-      style={{ padding: isMobile ? '60px 24px': '96px 48px', position: 'relative' }}
+      style={{ padding: isMobile ? '60px 24px': '96px 48px', position: 'relative', background:'var(--color-black)', }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
 
