@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Send, Mail } from 'lucide-react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 type FormState = {
   name: string
@@ -70,12 +71,12 @@ export default function Contact() {
     handle: 'mohak0678@gmail.com',
   },
 ]
-
+  const isMobile=useIsMobile()
   return (
     <section
       id="contact"
       style={{
-        padding: '96px 48px',
+        padding: isMobile ? '60px 24px': '96px 48px',
         position: 'relative',
         overflow: 'hidden',
         background: 'var(--color-black-2)',
@@ -99,7 +100,7 @@ export default function Contact() {
       >
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
+          gridTemplateColumns: isMobile ? '1fr':'1fr 1fr',
           gap: '80px',
           alignItems: 'start',
         }}>
@@ -243,7 +244,7 @@ export default function Contact() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr':'1fr 1fr', gap: '16px' }}>
                     <div>
                       <label style={{
                         display: 'block',
