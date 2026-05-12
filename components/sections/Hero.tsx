@@ -68,7 +68,7 @@ export default function Hero() {
         zIndex: 10,
         maxWidth: '1280px',
         margin: '0 auto',
-        padding: isMobile ? '120px 48px 60px': '120px 48px 60px',
+        padding: isMobile ? '100px 24px 40px': '120px 48px 60px',
         display: 'grid',
         gridTemplateColumns: isMobile ? '1fr': '1fr 1fr',
         gap: isMobile ? '32px':'64px',
@@ -187,6 +187,7 @@ export default function Hero() {
           style={{ position: 'relative', display: 'flex', justifyContent: isMobile ? 'center': 'flex-end' }}
         >
           {/* Hover hint */}
+          {!isMobile &&(
           <div style={{
             position: 'absolute',
             top: '-28px',
@@ -207,7 +208,7 @@ export default function Hero() {
             }} />
             Hover to reveal
           </div>
-
+          )}
           {/* Photo container */}
           <div
             onMouseEnter={() => setHoveringPhoto(true)}
@@ -215,7 +216,7 @@ export default function Hero() {
             style={{
               position: 'relative',
               width: isMobile ? '100%':'340px',
-              height: isMobile ? '300px':'420px',
+              height: isMobile ? '450px':'420px',
               cursor: 'pointer',
               borderRadius: '20px',
             }}
@@ -254,8 +255,8 @@ export default function Hero() {
               alt="Mohak Rathod"
               fill
               style={{
-                objectFit: 'cover',
-                objectPosition: 'top',
+                objectFit: isMobile ?'contain':'cover',
+                objectPosition: 'center',
                 borderRadius: '20px',
                 position:'absolute',
                 inset:0,
