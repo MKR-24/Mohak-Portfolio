@@ -1,19 +1,22 @@
 'use client'
 
-
+import { useIsMobile } from "@/hooks/useIsMobile"
 export default function Footer() {
+  const isMobile=useIsMobile()
   return (
     <footer style={{
       borderTop: '1px solid rgba(255,255,255,0.05)',
       background: 'var(--color-black)',
-      padding: '32px 48px',
+      padding: isMobile ? '24px 20px':'32px 48px',
     }}>
       <div style={{
         maxWidth: '1280px',
         margin: '0 auto',
         display: 'flex',
-        alignItems: 'center',
+        flexDirection:isMobile?'column':'row',
+        alignItems: isMobile ? 'flex-start': 'center',
         justifyContent: 'space-between',
+        gap: isMobile ? '12px' :'0',
         color: 'var(--color-muted)',
         fontSize: '13px',
       }}>

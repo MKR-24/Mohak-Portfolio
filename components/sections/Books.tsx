@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { books } from '@/lib/constants'
 import Image from 'next/image'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 function BookSpine({
   title,
@@ -288,11 +289,11 @@ function Shelf({ label, labelColor, children }: {
 
 export default function Books() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
-
+  const isMobile=useIsMobile()
   return (
     <section
       id="books"
-      style={{ padding: '96px 48px', position: 'relative' }}
+      style={{ padding: isMobile ? '60px 24px': '96px 48px', position: 'relative' }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
 
