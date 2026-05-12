@@ -1,22 +1,22 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef} from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
 import { counterItems, heroMarqueeItems } from '@/lib/constants'
-import Image from 'next/image'
+
 import { ArrowDown } from 'lucide-react'
 import { TypeAnimation } from 'react-type-animation'
 import FloatingGeometry from '../ui/FloatingGeometry'
 import { useIsMobile } from '@/hooks/useIsMobile'
+import Image from 'next/image'
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
-  const [hoveringPhoto, setHoveringPhoto] = useState(false)
   const isMobile =useIsMobile()
   const { ref: counterRef, inView: counterInView } = useInView({
     triggerOnce: true,
@@ -198,101 +198,26 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.5 }}
           style={{ position: 'relative', display: 'flex', justifyContent: isMobile ? 'center': 'flex-end' }}
         >
-          {/* Hover hint */}
-          {!isMobile &&(
-          <div style={{
-            position: 'absolute',
-            top: '-28px',
-            right: 0,
-            fontSize: '12px',
-            color: 'var(--color-muted)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '6px',
-          }}>
-            <span style={{
-              width: '6px',
-              height: '6px',
-              borderRadius: '50%',
-              background: 'var(--color-blue-light)',
-              display: 'inline-block',
-              animation: 'pulse 2s infinite',
-            }} />
-            Hover to reveal
-          </div>
-          )}
-          {/* Photo container */}
-          <div
-            onMouseEnter={() => setHoveringPhoto(true)}
-            onMouseLeave={() => setHoveringPhoto(false)}
-            style={{
-              position: 'relative',
-              width: isMobile ? '100%':'340px',
-              height: isMobile ? '450px':'420px',
-              cursor: 'pointer',
-              borderRadius: '20px',
-            }}
-          >
-            {/* Purple glow behind photo */}
-            <div style={{
-              position: 'absolute',
-              inset: '-20px',
-              background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.3) 0%, transparent 70%)',
-              borderRadius: '24px',
-              zIndex: 0,
-            }} />
-
-            {/* Avatar image */}
-            <Image
-              src="/images/avatar.png"
-              alt="Mohak 3D Avatar"
-              fill
-              style={{
-                objectFit: 'cover',
-                objectPosition: 'top',
+        <div style={{
+                position: 'relative',
+                width: isMobile ? '100%' : '340px',
+                height: isMobile ? '420px' : '420px',
                 borderRadius: '20px',
-                position:'absolute',
-                inset:0,
-                zIndex: 1,
-                transition: 'opacity 0.5s ease, transform 0.5s ease',
-                opacity: hoveringPhoto ? 1 : 0,
-                transform: hoveringPhoto ? 'scale(1)' : 'scale(1.03)',
-              }}
-              priority
-            />
-
-            {/* Real photo */}
-            <Image
-              src="/images/mohak.png"
-              alt="Mohak Rathod"
-              fill
-              style={{
-                objectFit: isMobile ?'contain':'cover',
-                objectPosition: 'center',
-                borderRadius: '20px',
-                position:'absolute',
-                inset:0,
-                zIndex: 2,
-                transition: 'opacity 0.5s ease, transform 0.5s ease',
-                opacity: hoveringPhoto ? 0 : 1,
-                transform: hoveringPhoto ? 'scale(0.97)' : 'scale(1)',
-              }}
-              priority
-            />
-
-            {/* Ring border */}
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              borderRadius: '20px',
-              border: hoveringPhoto
-                ? '2px solid var(--color-blue-light)'
-                : '1px solid rgba(37,99,235,0.3)',
-              zIndex: 3,
-              transition: 'border 0.4s ease',
-              pointerEvents: 'none',
-            }} />
-          </div>
+                overflow: 'hidden',
+                border: '1px solid rgba(37,99,235,0.3)',
+                boxShadow: '0 0 40px rgba(37,99,235,0.15)',
+              }}>
+              <Image
+                src="/images/mohak.png"
+                alt="Mohak Rathod"
+                fill
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: isMobile ? 'center 15%' : 'center',
+                }}
+                priority
+              />
+            </div>
 
           {/* Floating badge */}
           <motion.div
