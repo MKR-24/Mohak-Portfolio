@@ -133,37 +133,49 @@ export default function Hero() {
               Currently looking for Summer/Fall 2026 roles.
             </p>
           </div>
-          {/* Bhagavad Gita quote */}
-            <div className="hero-line" style={{
-            borderLeft: '2px solid rgba(37,99,235,0.4)',
-            paddingLeft: '16px',
-            marginBottom: '36px',
-            }}>
+         {/* Quote */}
+          <div className="hero-line" style={{ marginBottom: '36px' }}>
             <div style={{
-                fontFamily: 'var(--font-display)',
+              position: 'relative',
+              padding: '20px 24px',
+              borderRadius: '12px',
+              background: 'rgba(37,99,235,0.05)',
+              border: '1px solid rgba(37,99,235,0.15)',
+              maxWidth: '420px',
+            }}>
+              {/* Decorative quote mark */}
+              <div style={{
+                position: 'absolute',
+                top: '-12px',
+                left: '16px',
+                fontSize: '48px',
+                color: 'var(--color-blue)',
+                opacity: 0.3,
+                fontFamily: 'serif',
+                lineHeight: 1,
+              }}>
+                &quot;
+              </div>
+              <div style={{
                 fontSize: '15px',
-                color: 'var(--color-blue-light)',
-                marginBottom: '4px',
-                letterSpacing: '0.3px',
-            }}>
-                કર્મ કર, ફળની ચિંતા ન કર
-            </div>
-            <div style={{
-                fontSize: '13px',
-                color: 'var(--color-muted)',
+                color: 'var(--color-white)',
                 fontStyle: 'italic',
-                marginBottom: '2px',
-            }}>
-                &quot;Do the deed, not desire the fruit.&quot;
-            </div>
-            <div style={{
+                lineHeight: 1.6,
+                marginBottom: '10px',
+              }}>
+                The best way to predict the future is to build it.
+              </div>
+              <div style={{
                 fontSize: '11px',
-                color: 'rgba(139,139,160,0.6)',
-                letterSpacing: '1px',
-            }}>
-                — Bhagavad Gita
+                color: 'var(--color-blue-light)',
+                letterSpacing: '2px',
+                textTransform: 'uppercase',
+                fontWeight: 600,
+              }}>
+                — Alan Kay, Computer Scientist
+              </div>
             </div>
-            </div>
+          </div>
           {/* CTAs */}
           <div className="hero-line" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <a href="#projects" className="btn-primary">
