@@ -6,6 +6,7 @@ import { useInView } from 'react-intersection-observer'
 import { Send, Mail } from 'lucide-react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { useIsMobile } from '@/hooks/useIsMobile'
+import WordsReveal from '../ui/WordsReveal'
 
 type FormState = {
   name: string
@@ -114,10 +115,9 @@ export default function Contact() {
             <span className="label-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
               Contact
             </span>
-            <h2 className="section-title" style={{ marginBottom: '20px' }}>
-              Let&apos;s build something{' '}
-              <span className="gradient-text">together</span>
-            </h2>
+          <div style={{ marginBottom: '20px' }}>
+          <WordsReveal className="section-title">Let&apos;s build something together</WordsReveal>
+          </div>
             <p style={{
               color: 'var(--color-muted)',
               fontSize: '16px',
@@ -214,11 +214,13 @@ export default function Contact() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
-            <div style={{
+            <div   className="noise-card"
+              style={{
               background: 'var(--color-black-3)',
               border: '1px solid rgba(37,99,235,0.2)',
               borderRadius: '20px',
               padding: '40px',
+              position: 'relative',
             }}>
               {status === 'sent' ? (
                 <motion.div

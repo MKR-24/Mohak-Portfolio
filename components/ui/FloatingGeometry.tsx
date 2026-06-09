@@ -20,7 +20,7 @@ function Shape() {
         color="#2563EB"
         wireframe
         distort={0.3}
-        speed={1.5}
+        speed={0.8}
         opacity={0.5}
         transparent
       />

@@ -8,6 +8,8 @@ import { useIsMobile } from '@/hooks/useIsMobile'
 import { useRef } from 'react'
 const rotations = [-20, -10, 0, 10, 20]
 const translateY = [20, 8, 0, 8, 20]
+import WordsReveal from '../ui/WordsReveal'
+import ScrollRevealText from '../ui/ScrollRevealText'
 
 export default function DomainCards() {
   const [activeCard, setActiveCard] = useState(2)
@@ -53,16 +55,10 @@ export default function DomainCards() {
           <span className="label-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
             Skills
           </span>
-          <h2 className="section-title">What I bring</h2>
-          <p style ={{
-            color:'var(--color-muted)',
-            fontSize: '16px',
-            marginTop:'12px',
-            maxWidth: '480px',
-            lineHeight : 1.6,
-          }}>
+          <WordsReveal className="section-title">What I bring</WordsReveal>
+          <ScrollRevealText className="section-subtitle">
             Click a card to explore my technical domains.
-          </p>
+          </ScrollRevealText>
         </motion.div>
 
         {/* Card fan */}
@@ -94,6 +90,7 @@ export default function DomainCards() {
                 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                 whileHover={!isActive ? { y: translateY[i] - 12, scale: 0.93 } : {}}
+                className={isActive ? 'noise-card' : ''}
                 style={{
                 position: 'absolute',
                 width: '180px',
@@ -197,11 +194,12 @@ export default function DomainCards() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.35 }}
-            className="card-glow"
+            className="card-glow noise-card"
             style={{
               borderRadius: '20px',
               padding: isMobile ? '24px':'40px',
               marginTop: '48px',
+              position:'relative',
               display: 'grid',
               gridTemplateColumns: isMobile ? '1fr':'1fr auto',
               gap: isMobile ? '24px':'40px',
@@ -234,8 +232,10 @@ export default function DomainCards() {
 
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {active.skills.map(skill => (
-                  <span
+                  <motion.span
                     key={skill}
+                    whileHover={{ scale: 1.08, y: -2 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                     style={{
                       fontSize: '13px',
                       padding: '6px 14px',
@@ -243,10 +243,12 @@ export default function DomainCards() {
                       border: '1px solid rgba(37,99,235,0.35)',
                       color: 'var(--color-blue-light)',
                       background: 'rgba(37,99,235,0.08)',
+                      display:'inline-block',
+                      cursor:'default'
                     }}
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>

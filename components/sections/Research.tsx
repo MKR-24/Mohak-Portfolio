@@ -5,6 +5,8 @@ import { useInView } from 'react-intersection-observer'
 import { research } from '@/lib/constants'
 import { ExternalLink, FileText, Clock } from 'lucide-react'
 import { useIsMobile } from '@/hooks/useIsMobile'
+import WordsReveal from '../ui/WordsReveal'
+import ScrollRevealText from '../ui/ScrollRevealText'
 
 function StatusBadge({ status }: { status: string }) {
   const colors: Record<string, { bg: string; color: string }> = {
@@ -67,16 +69,10 @@ export default function Research() {
           <span className="label-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
             Research
           </span>
-          <h2 className="section-title">Published Work</h2>
-          <p style={{
-            color: 'var(--color-muted)',
-            fontSize: '16px',
-            marginTop: '12px',
-            maxWidth: '480px',
-            lineHeight: 1.6,
-          }}>
+          <WordsReveal className="section-title">Published  Work</WordsReveal> 
+          <ScrollRevealText>
             3 papers across cybersecurity, blockchain, and AI — one published, two in review.
-          </p>
+          </ScrollRevealText>
         </motion.div>
 
         {/* Papers */}
@@ -143,6 +139,7 @@ export default function Research() {
                 }}>
                   {paper.desc}
                 </p>
+                
 
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                   {paper.tags.map(tag => (

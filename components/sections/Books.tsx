@@ -1,10 +1,13 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import {motion, useScroll, useTransform, motion as m } from 'framer-motion'
+import { useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { books } from '@/lib/constants'
 import Image from 'next/image'
 import { useIsMobile } from '@/hooks/useIsMobile'
+import WordsReveal from '../ui/WordsReveal'
+import ScrollRevealText from '../ui/ScrollRevealText'
 
 function BookSpine({
   title,
@@ -289,11 +292,23 @@ function Shelf({ label, labelColor, children }: {
 
 export default function Books() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
-  const isMobile=useIsMobile()
+  const isMobile = useIsMobile()
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -40])
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -20])
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, -60])
+
   return (
     <section
       id="books"
-      style={{ padding: isMobile ? '60px 24px': '96px 48px', position: 'relative', background:'var(--color-black)', }}
+      ref={sectionRef}
+      style={{ padding: isMobile ? '60px 24px' : '96px 48px', position: 'relative', background: 'var(--color-black)' }}
     >
       <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
 
@@ -308,24 +323,15 @@ export default function Books() {
           <span className="label-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
             Reading List
           </span>
-          <h2 className="section-title">Books on my shelf</h2>
-          <p style={{
-            color: 'var(--color-muted)',
-            fontSize: '16px',
-            marginTop: '12px',
-            maxWidth: '480px',
-            lineHeight: 1.6,
-          }}>
+          <WordsReveal className="section-title">Books on my shelf</WordsReveal>          
+          <ScrollRevealText>
             What I read shapes how I think. A dev who only codes gets stuck.
-          </p>
+          </ScrollRevealText>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
+        
           {/* Currently Reading shelf */}
+          <m.div style={{ y: y1 }}>
           <Shelf label="Currently Reading" labelColor="#60A5FA">
             {books.reading.map((book, i) => (
               <ReadingBook
@@ -338,8 +344,10 @@ export default function Books() {
               />
             ))}
           </Shelf>
+          </m.div>
 
           {/* Completed shelf */}
+          <m.div style={{ y: y2 }}>
           <Shelf label="Completed" labelColor="#4ade80">
             {books.completed.map((book, i) => (
               <BookSpine
@@ -351,8 +359,10 @@ export default function Books() {
               />
             ))}
           </Shelf>
+          </m.div>
 
           {/* Will Read shelf */}
+          <m.div style={{ y: y3 }}>
           <Shelf label="Will Read" labelColor="#fbbf24">
             {books.willRead.map((book, i) => (
               <BookSpine
@@ -364,7 +374,8 @@ export default function Books() {
               />
             ))}
           </Shelf>
-        </motion.div>
+          </m.div>.
+        
       </div>
     </section>
   )

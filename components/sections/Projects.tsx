@@ -10,6 +10,7 @@ import { projects } from '@/lib/constants'
 import Image from 'next/image'
 import { GitBranch, ExternalLink, ArrowRight } from 'lucide-react'
 import { useIsMobile } from '@/hooks/useIsMobile'
+import WordsReveal from '../ui/WordsReveal'
 gsap.registerPlugin(ScrollTrigger)
 
 function FeaturedProject({ project }: { project: typeof projects[0] }) {
@@ -401,8 +402,7 @@ export default function Projects() {
           <span className="label-pill" style={{ marginBottom: '16px', display: 'inline-block' }}>
             Work
           </span>
-          <h2 className="section-title">Recent Projects</h2>
-          <p style={{
+          <WordsReveal className="section-title">Recent Projects</WordsReveal>          <p style={{
             color: 'var(--color-muted)',
             fontSize: '16px',
             marginTop: '12px',

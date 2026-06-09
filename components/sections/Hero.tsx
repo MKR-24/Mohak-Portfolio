@@ -1,22 +1,30 @@
 'use client'
 
-import { useRef} from 'react'
+import { useRef,  useState } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
-import { counterItems, heroMarqueeItems } from '@/lib/constants'
+import { counterItems } from '@/lib/constants'
 
 import { ArrowDown } from 'lucide-react'
 import { TypeAnimation } from 'react-type-animation'
-import FloatingGeometry from '../ui/FloatingGeometry'
 import { useIsMobile } from '@/hooks/useIsMobile'
 import Image from 'next/image'
+import ScrollRevealText from '../ui/ScrollRevealText'
+import IconMarquee from '../ui/IconMarquee'
+import AboutModal from '../ui/AboutModal'
 
+import dynamic from 'next/dynamic'
+const FloatingGeometry = dynamic(() => import('../ui/FloatingGeometry'), {
+  ssr: false,
+  loading: () => null,
+})
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
+  const [aboutOpen, setAboutOpen] = useState(false)
   const isMobile =useIsMobile()
   const { ref: counterRef, inView: counterInView } = useInView({
     triggerOnce: true,
@@ -163,7 +171,9 @@ export default function Hero() {
                 lineHeight: 1.6,
                 marginBottom: '10px',
               }}>
-                The best way to predict the future is to build it.
+                <ScrollRevealText>
+                  The best way to predict the future is to build it.
+                </ScrollRevealText>
               </div>
               <div style={{
                 fontSize: '11px',
@@ -192,32 +202,41 @@ export default function Hero() {
         </div>
 
         {/* RIGHT: Photo reveal */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.5 }}
-          style={{ position: 'relative', display: 'flex', justifyContent: isMobile ? 'center': 'flex-end' }}
-        >
-        <div style={{
-                position: 'relative',
-                width: isMobile ? '100%' : '340px',
-                height: isMobile ? '420px' : '420px',
-                borderRadius: '20px',
-                overflow: 'hidden',
-                border: '1px solid rgba(37,99,235,0.3)',
-                boxShadow: '0 0 40px rgba(37,99,235,0.15)',
-              }}>
-              <Image
-                src="/images/mohak.png"
-                alt="Mohak Rathod"
-                fill
-                style={{
-                  objectFit: 'cover',
-                  objectPosition: isMobile ? 'center 15%' : 'center',
-                }}
-                priority
-              />
-            </div>
+<motion.div
+  initial={{ opacity: 0, x: 40 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.9, delay: 0.5 }}
+  style={{ position: 'relative', display: 'flex', justifyContent: isMobile ? 'center' : 'flex-end' }}
+>
+  <motion.div
+    whileHover={{
+      boxShadow: '0 0 60px rgba(37,99,235,0.4)',
+      borderColor: 'rgba(37,99,235,0.6)',
+    }}
+    transition={{ duration: 0.3 }}
+    onClick={() => setAboutOpen(true)}
+    style={{
+      position: 'relative',
+      width: isMobile ? '100%' : '340px',
+      height: isMobile ? '420px' : '420px',
+      borderRadius: '20px',
+      overflow: 'hidden',
+      border: '1px solid rgba(37,99,235,0.3)',
+      boxShadow: '0 0 40px rgba(37,99,235,0.15)',
+      cursor: 'pointer',
+    }}
+  >
+    <Image
+      src="/images/mohak.png"
+      alt="Mohak Rathod"
+      fill
+      style={{
+        objectFit: 'cover',
+        objectPosition: isMobile ? 'center 15%' : 'center',
+      }}
+      priority
+    />
+  </motion.div>
 
           {/* Floating badge */}
           <motion.div
@@ -288,37 +307,8 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Marquee strip */}
-      <div style={{
-        borderTop: '1px solid rgba(37,99,235,0.15)',
-        borderBottom: '1px solid rgba(37,99,235,0.15)',
-        background: 'rgba(13,13,20,0.6)',
-        padding: '14px 0',
-        overflow: 'hidden',
-        position: 'relative',
-        zIndex: 10,
-      }}>
-        <div className="marquee-track">
-          {heroMarqueeItems.map((item, i) => (
-            <span
-              key={i}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '24px',
-                padding: '0 24px',
-                color: 'var(--color-muted)',
-                fontSize: '13px',
-                fontWeight: 500,
-                whiteSpace: 'nowrap',
-              }}
-            >
-              <span style={{ color: 'var(--color-blue-light)', fontSize: '10px' }}>✦</span>
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
+      <IconMarquee/>
+    <AboutModal open={aboutOpen} onClose={() => setAboutOpen(false)} />
     </section>
   )
 }
