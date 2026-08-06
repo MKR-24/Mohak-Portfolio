@@ -3,7 +3,6 @@
 import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, MapPin, GraduationCap, Briefcase, Music } from 'lucide-react'
-
 export default function AboutModal({
   open,
   onClose,
@@ -250,7 +249,7 @@ export default function AboutModal({
                 Currently looking to bring that mindset to a team building something ambitious.
               </p>
             </div>
-
+                  
             {/* CTA */}
             <a
               href="#contact"

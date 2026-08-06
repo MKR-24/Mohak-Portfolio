@@ -1,10 +1,12 @@
 'use client'
 
-import { useRef } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { useSyncExternalStore } from 'react'
 
 const TECH_TEXT = 'GO · PYTHON · DISTRIBUTED SYSTEMS · SECURITY · AI · NEXT.JS · KUBERNETES · '
+
+function subscribe() { return () => {} }
 
 export default function CircularPhoto({
   size = 320,
@@ -13,7 +15,10 @@ export default function CircularPhoto({
   size?: number
   isMobile?: boolean
 }) {
+  const mounted = useSyncExternalStore(subscribe, () => true, () => false)
   const actualSize = isMobile ? 260 : size
+
+  if (!mounted) return null
 
   return (
     <div style={{
@@ -40,12 +45,7 @@ export default function CircularPhoto({
           <defs>
             <path
               id="textCircle"
-              d={`
-                M ${actualSize / 2}, ${actualSize / 2}
-                m -${actualSize / 2 - 12}, 0
-                a ${actualSize / 2 - 12}, ${actualSize / 2 - 12} 0 1,1 ${(actualSize / 2 - 12) * 2},0
-                a ${actualSize / 2 - 12}, ${actualSize / 2 - 12} 0 1,1 -${(actualSize / 2 - 12) * 2},0
-              `}
+              d={`M ${actualSize / 2}, ${actualSize / 2} m -${actualSize / 2 - 12},0 a ${actualSize / 2 - 12},${actualSize / 2 - 12} 0 1,1 ${(actualSize / 2 - 12) * 2},0 a ${actualSize / 2 - 12},${actualSize / 2 - 12} 0 1,1 -${(actualSize / 2 - 12) * 2},0`}
             />
           </defs>
           <text
@@ -80,7 +80,7 @@ export default function CircularPhoto({
           fill
           style={{
             objectFit: 'cover',
-            objectPosition: 'center 15%',
+            objectPosition: 'center 20%',
           }}
           priority
         />
