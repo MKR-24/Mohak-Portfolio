@@ -1,37 +1,32 @@
 'use client'
 
-import { useRef,  useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
 import { counterItems } from '@/lib/constants'
-
+import CircularPhoto from '../ui/CircularPhoto'
 import { ArrowDown } from 'lucide-react'
 import { TypeAnimation } from 'react-type-animation'
 import { useIsMobile } from '@/hooks/useIsMobile'
-import Image from 'next/image'
 import ScrollRevealText from '../ui/ScrollRevealText'
 import IconMarquee from '../ui/IconMarquee'
 import AboutModal from '../ui/AboutModal'
 
-import dynamic from 'next/dynamic'
-const FloatingGeometry = dynamic(() => import('../ui/FloatingGeometry'), {
-  ssr: false,
-  loading: () => null,
-})
+
+
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
   const [aboutOpen, setAboutOpen] = useState(false)
-  const isMobile =useIsMobile()
+  const isMobile = useIsMobile()
   const { ref: counterRef, inView: counterInView } = useInView({
     triggerOnce: true,
     threshold: 0.3,
   })
 
-  // GSAP animates the text lines on page load
   useGSAP(() => {
     gsap.fromTo(
       '.hero-line',
@@ -51,12 +46,19 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      style={{ position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', overflow: 'hidden' }}
+      style={{
+        position: 'relative',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        overflow: 'hidden',
+      }}
     >
       {/* Stars background */}
       <div className="stars-bg" />
 
-      {/* Purple radial glow */}
+      {/* Radial glow */}
       <div style={{
         position: 'absolute',
         top: '50%',
@@ -68,18 +70,18 @@ export default function Hero() {
         background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%)',
         pointerEvents: 'none',
       }} />
-      {/* 3D Geometry */}
-      <FloatingGeometry />
+
+
       {/* Main content grid */}
       <div style={{
         position: 'relative',
         zIndex: 10,
         maxWidth: '1280px',
         margin: '0 auto',
-        padding: isMobile ? '100px 24px 40px': '120px 48px 60px',
+        padding: isMobile ? '100px 24px 40px' : '120px 48px 60px',
         display: 'grid',
-        gridTemplateColumns: isMobile ? '1fr': '1fr 1fr',
-        gap: isMobile ? '32px':'64px',
+        gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+        gap: isMobile ? '32px' : '64px',
         alignItems: 'center',
         width: '100%',
       }}>
@@ -87,29 +89,28 @@ export default function Hero() {
         {/* LEFT: Text content */}
         <div ref={textRef}>
 
-          {/* Label */}
+          {/* Typing greeting */}
           <div className="hero-line" style={{ marginBottom: '20px' }}>
-            {/* Typing greeting */}
             <div className="hero-line" style={{ marginBottom: '12px' }}>
-            <TypeAnimation
+              <TypeAnimation
                 sequence={[
-                'Hey, I am Mohak Rathod 🙋🏼‍♂️', 2000,
-                'Hola, soy Mohak Rathod 🙋🏼‍♂️', 2000,
-                'નમસ્તે, હું મોહક રાઠોડ છું 🙏🏼', 2000,
-                'Bonjour, je suis Mohak Rathod 👋', 2000,
-                'Hallo, ich bin Mohak Rathod 👋', 2000,
-                '안녕하세요, 저는 Mohak Rathod입니다 🙇🏼‍♂️', 2000,
-                'こんにちは、私はMohak Rathod です 🙇🏼‍♂️', 2000,
+                  'Hey, I am Mohak Rathod 🙋🏼‍♂️', 2000,
+                  'Hola, soy Mohak Rathod 🙋🏼‍♂️', 2000,
+                  'નમસ્તે, હું મોહક રાઠોડ છું 🙏🏼', 2000,
+                  'Bonjour, je suis Mohak Rathod 👋', 2000,
+                  'Hallo, ich bin Mohak Rathod 👋', 2000,
+                  '안녕하세요, 저는 Mohak Rathod입니다 🙇🏼‍♂️', 2000,
+                  'こんにちは、私はMohak Rathod です 🙇🏼‍♂️', 2000,
                 ]}
                 wrapper="span"
                 speed={50}
                 repeat={Infinity}
                 style={{
-                fontSize: '18px',
-                color: 'var(--color-muted)',
-                fontFamily: 'var(--font-body)',
+                  fontSize: '18px',
+                  color: 'var(--color-muted)',
+                  fontFamily: 'var(--font-body)',
                 }}
-            />
+              />
             </div>
             <span className="label-pill">MS CS @ Arizona State University</span>
           </div>
@@ -141,7 +142,8 @@ export default function Hero() {
               Currently looking for Summer/Fall 2026 roles.
             </p>
           </div>
-         {/* Quote */}
+
+          {/* Quote */}
           <div className="hero-line" style={{ marginBottom: '36px' }}>
             <div style={{
               position: 'relative',
@@ -151,7 +153,6 @@ export default function Hero() {
               border: '1px solid rgba(37,99,235,0.15)',
               maxWidth: '420px',
             }}>
-              {/* Decorative quote mark */}
               <div style={{
                 position: 'absolute',
                 top: '-12px',
@@ -186,84 +187,43 @@ export default function Hero() {
               </div>
             </div>
           </div>
+
           {/* CTAs */}
           <div className="hero-line" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <a href="#projects" className="btn-primary">
               View My Work <ArrowDown size={16} />
             </a>
-            <a href="/resume-ats.pdf"
-                download="Mohak_Rathod_Resume.pdf"
-                className='btn-outline'
+            <a
+              href="/resume-ats.pdf"
+              download="Mohak_Rathod_Resume.pdf"
+              className="btn-outline"
             >
-                Resume ↓
-                </a>
-        
+              Resume ↓
+            </a>
           </div>
+
         </div>
+        {/* END LEFT */}
 
-        {/* RIGHT: Photo reveal */}
-<motion.div
-  initial={{ opacity: 0, x: 40 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.9, delay: 0.5 }}
-  style={{ position: 'relative', display: 'flex', justifyContent: isMobile ? 'center' : 'flex-end' }}
->
-  <motion.div
-    whileHover={{
-      boxShadow: '0 0 60px rgba(37,99,235,0.4)',
-      borderColor: 'rgba(37,99,235,0.6)',
-    }}
-    transition={{ duration: 0.3 }}
-    onClick={() => setAboutOpen(true)}
-    style={{
-      position: 'relative',
-      width: isMobile ? '100%' : '340px',
-      height: isMobile ? '420px' : '420px',
-      borderRadius: '20px',
-      overflow: 'hidden',
-      border: '1px solid rgba(37,99,235,0.3)',
-      boxShadow: '0 0 40px rgba(37,99,235,0.15)',
-      cursor: 'pointer',
-    }}
-  >
-    <Image
-      src="/images/mohak.png"
-      alt="Mohak Rathod"
-      fill
-      style={{
-        objectFit: 'cover',
-        objectPosition: isMobile ? 'center 15%' : 'center',
-      }}
-      priority
-    />
-  </motion.div>
-
-          {/* Floating badge */}
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            style={{
-              position: 'absolute',
-              bottom: isMobile ? '-8px': '-16px',
-              left: isMobile ? '8px': '-16px',
-              background: 'var(--color-black-3)',
-              border: '1px solid rgba(37,99,235,0.3)',
-              borderRadius: '12px',
-              padding: isMobile ? '8px 12px':'12px 16px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              zIndex: 10,
-            }}
-          >
-            <span style={{ fontSize: '24px' }}>🚀</span>
-            <div>
-              <div style={{ fontSize: '11px', color: 'var(--color-muted)' }}>Currently</div>
-              <div style={{ fontSize: '13px', fontWeight: 500 }}>Building cool stuff</div>
-            </div>
-          </motion.div>
+        {/* RIGHT: Circular Photo */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, delay: 0.5 }}
+          style={{
+            position: 'relative',
+            display: 'flex',
+            justifyContent: isMobile ? 'center' : 'flex-end',
+            alignItems: 'center',
+          }}
+          onClick={() => setAboutOpen(true)}
+        >
+          <CircularPhoto size={340} isMobile={isMobile} />
         </motion.div>
+        {/* END RIGHT */}
+
       </div>
+      {/* END GRID */}
 
       {/* Counter strip */}
       <div
@@ -273,10 +233,10 @@ export default function Hero() {
           zIndex: 10,
           maxWidth: '1280px',
           margin: '0 auto',
-          padding: isMobile ? '0 24px 40px' :'0 48px 60px',
+          padding: isMobile ? '0 24px 40px' : '0 48px 60px',
           width: '100%',
           display: 'grid',
-          gridTemplateColumns: isMobile ? 'repeat(2, 1fr)': 'repeat(4, 1fr)',
+          gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
           gap: '16px',
         }}
       >
@@ -307,8 +267,9 @@ export default function Hero() {
         ))}
       </div>
 
-      <IconMarquee/>
-    <AboutModal open={aboutOpen} onClose={() => setAboutOpen(false)} />
+      <IconMarquee />
+      <AboutModal open={aboutOpen} onClose={() => setAboutOpen(false)} />
+
     </section>
   )
 }
