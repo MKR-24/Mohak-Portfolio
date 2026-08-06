@@ -206,8 +206,24 @@ export default function Contact() {
               }} />
               Available for opportunities · Tempe, AZ
             </div>
+            {/* Calendly */}
+            <a
+            href="https://calendly.com/mohak0678/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-outline"
+            style={{
+              marginTop: '16px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              fontSize: '14px',
+            }}
+          >
+            ☕ Book a Coffee Chat
+          </a>
           </motion.div>
-
+              
           {/* Right: form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
